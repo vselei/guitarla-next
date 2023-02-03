@@ -1,5 +1,31 @@
+import Image from 'next/image';
+
+import styles from '@/styles/guitars.module.css';
+import Layout from '@/components/layout';
+
 const Product = ({ guitar }) => {
-  return <div>url</div>;
+  const { name, description, image, price } = guitar[0].attributes;
+
+  return (
+    <Layout
+      title={`Guitarra ${name}`}
+      description={`Venda de guitarras e blog de música. Guitarra ${name}`}
+    >
+      <div className={styles.guitar}>
+        <Image
+          src={image.data.attributes.url}
+          alt={`guitarra ${name}`}
+          width={600}
+          height={400}
+        />
+        <div className={styles.content}>
+          <h3>{name}</h3>
+          <p className={styles.description}>{description}</p>
+          <p className={styles.price}>${price}</p>
+        </div>
+      </div>
+    </Layout>
+  );
 };
 
 export const getStaticPaths = async () => {
