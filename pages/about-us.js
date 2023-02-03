@@ -10,7 +10,7 @@ const AboutUs = () => {
       description="Um pouco sobre a gente. Loja de guitarras e blogs de música!"
     >
       <main className="container">
-        <h2 className="heading">Sobre Nós</h2>
+        <h1 className="heading">Sobre Nós</h1>
 
         <div className={styles.content}>
           <Image
