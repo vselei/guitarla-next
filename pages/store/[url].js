@@ -31,7 +31,7 @@ const Product = ({ guitar }) => {
 export const getStaticPaths = async () => {
   const response = await fetch(`${process.env.API_URL}/guitars`);
   const { data } = await response.json();
-  const paths = data.map(g => ({
+  const paths = data?.map(g => ({
     params: {
       url: g.attributes.url
     }

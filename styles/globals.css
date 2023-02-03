@@ -33,6 +33,20 @@ main {
   margin: 3rem auto;
 }
 
+.error,
+.link-error {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.link-error {
+  font-size: 1.8rem;
+  display: block;
+  text-decoration: none;
+  color: var(--primary);
+}
+
 [class*='heading'] {
   font-size: 4rem;
   text-align: center;
