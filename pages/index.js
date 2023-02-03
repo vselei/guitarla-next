@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Layout from '@/components/layout';
 
 const Home = () => {
@@ -8,7 +7,6 @@ const Home = () => {
       description="Blog de música, venda de guitarras e mais!"
     >
       <h1>Hello World</h1>
-      <Link href="/about-us">Sobre nós</Link>
     </Layout>
   );
 };
