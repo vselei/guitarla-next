@@ -1,4 +1,4 @@
-import GuitarsList from '@/components/guitars-list';
+import Guitar from '@/components/guitar';
 import Layout from '@/components/layout';
 
 const Store = ({ guitars }) => {
@@ -10,7 +10,9 @@ const Store = ({ guitars }) => {
       <main className="container">
         <h1 className="heading">Nossa Coleção</h1>
 
-        <GuitarsList guitars={guitars} />
+        {guitars?.map(g => (
+          <Guitar key={g.id} guitar={g.attributes} />
+        ))}
       </main>
     </Layout>
   );
