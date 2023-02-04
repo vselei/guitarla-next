@@ -20,6 +20,8 @@
   margin-top: 5rem;
   display: flex;
   gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navigation a {
