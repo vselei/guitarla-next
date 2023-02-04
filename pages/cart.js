@@ -4,7 +4,7 @@ import Layout from '@/components/layout';
 
 import styles from '@/styles/cart.module.css';
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, updateProduct }) => {
   return (
     <Layout title="Carrinho">
       <main className="container">
@@ -26,7 +26,26 @@ const Cart = ({ cart }) => {
                     </div>
                     <div>
                       <p className={styles.name}>{p.name}</p>
-                      <p>Quantidade: {p.qty}</p>
+                      <div className={styles.qty}>
+                        <label htmlFor="qty">Quantidade: </label>
+                        <select
+                          onChange={e =>
+                            updateProduct({
+                              id: p.id,
+                              qty: e.target.value
+                            })
+                          }
+                          value={p.qty}
+                          className={styles.select}
+                          id="qty"
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </div>
                       <p className={styles.price}>
                         $<span>{p.price}</span>
                       </p>

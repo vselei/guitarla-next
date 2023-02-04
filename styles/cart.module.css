@@ -36,13 +36,24 @@
   font-size: 4.2rem;
 }
 
+.select {
+  all: unset;
+  border: 1px solid var(--black);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  margin-right: 0.5rem;
+}
+
 .product span {
   font-weight: 900;
   font-size: 3.2rem;
 }
 
 .price {
-  margin-top: 2rem;
   font-weight: 700;
   color: var(--primary);
 }
