@@ -26,6 +26,7 @@ const Cart = ({ cart }) => {
                     </div>
                     <div>
                       <p className={styles.name}>{p.name}</p>
+                      <p>Quantidade: {p.qty}</p>
                       <p className={styles.price}>
                         $<span>{p.price}</span>
                       </p>
