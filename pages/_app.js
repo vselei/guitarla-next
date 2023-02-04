@@ -1,8 +1,16 @@
 import '@/styles/globals.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = ({ Component, pageProps }) => {
-  const [cart, setCart] = useState([]);
+  const cartLS =
+    typeof window !== 'undefined'
+      ? JSON.parse(localStorage.getItem('cart')) ?? []
+      : [];
+  const [cart, setCart] = useState(cartLS);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = guitar => {
     if (cart.some(g => g.id === guitar.id)) {
@@ -13,17 +21,14 @@ const App = ({ Component, pageProps }) => {
         return g;
       });
       setCart([...updatedCart]);
-      localStorage.setItem('cart', JSON.stringify(cart));
     } else {
       setCart([...cart, guitar]);
-      localStorage.setItem('cart', JSON.stringify(cart));
     }
   };
 
   const deleteFromCart = id => {
     const updatedCart = cart.filter(product => product.id != id);
     setCart(updatedCart);
-    window.localStorage.setItem('cart', JSON.stringify(cart));
   };
 
   const updateProduct = guitar => {
@@ -34,7 +39,6 @@ const App = ({ Component, pageProps }) => {
       return g;
     });
     setCart(updatedCart);
-    window.localStorage.setItem('cart', JSON.stringify(cart));
   };
 
   return (
