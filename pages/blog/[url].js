@@ -13,7 +13,7 @@ const Post = ({ post }) => {
       title={title}
       description={`Venda de guitarras e blog de música. ${title}`}
     >
-      <article className={`${styles.post} ${styles['mt-3']}`}>
+      <article className={`container ${styles.post} ${styles['mt-3']}`}>
         <Image
           src={image.data.attributes.url}
           alt={`Blog ${title}`}
