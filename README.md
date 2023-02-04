@@ -45,3 +45,6 @@ npm run dev
 - Next.js
 - Context API
 
+##
+
+Visite o site: <a href="https://guitarla-next-vselei.vercel.app/">GuitarLA Next</a>
