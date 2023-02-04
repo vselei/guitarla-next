@@ -5,7 +5,7 @@ import Layout from '@/components/layout';
 import styles from '@/styles/cart.module.css';
 import { useEffect, useState } from 'react';
 
-const Cart = ({ cart, updateProduct }) => {
+const Cart = ({ cart, updateProduct, deleteFromCart }) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -65,6 +65,13 @@ const Cart = ({ cart, updateProduct }) => {
                         Subtotal: $<span>{p.qty * p.price}</span>
                       </p>
                     </div>
+                    <button
+                      onClick={() => deleteFromCart(p.id)}
+                      className={styles.delete}
+                      type="button"
+                    >
+                      X
+                    </button>
                   </div>
                 ))}
           </div>
