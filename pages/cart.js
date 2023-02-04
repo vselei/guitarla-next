@@ -3,8 +3,20 @@ import Image from 'next/image';
 import Layout from '@/components/layout';
 
 import styles from '@/styles/cart.module.css';
+import { useEffect, useState } from 'react';
 
 const Cart = ({ cart, updateProduct }) => {
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const totalToPay = cart.reduce(
+      (accumulator, currentValue) =>
+        accumulator + currentValue.qty * currentValue.price,
+      0
+    );
+    setTotal(totalToPay);
+  }, [cart]);
+
   return (
     <Layout title="Carrinho">
       <main className="container">
@@ -58,7 +70,7 @@ const Cart = ({ cart, updateProduct }) => {
           </div>
           <aside className={styles.summary}>
             <h3>Resumo do Pedido</h3>
-            <p>Total a Pagar: $</p>
+            <p>Total a Pagar: ${total}</p>
           </aside>
         </div>
       </main>
