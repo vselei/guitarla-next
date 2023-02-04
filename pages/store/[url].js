@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 
 import styles from '@/styles/guitars.module.css';
@@ -5,6 +6,19 @@ import Layout from '@/components/layout';
 
 const Product = ({ guitar }) => {
   const { name, description, image, price } = guitar[0].attributes;
+
+  const [qty, setQty] = useState(0);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (qty < 1) {
+      alert('Quantidade não é válida');
+      return;
+    }
+
+    // Construir um objeto
+  };
 
   return (
     <Layout
@@ -22,9 +36,9 @@ const Product = ({ guitar }) => {
           <h3>{name}</h3>
           <p className={styles.description}>{description}</p>
           <p className={styles.price}>${price}</p>
-          <form className={styles.form}>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <label htmlFor="qty">Quantidade:</label>
-            <select id="qty">
+            <select onChange={e => setQty(+e.target.value)} id="qty">
               <option value="0">-- Selecione --</option>
               <option value="1">1</option>
               <option value="2">2</option>
