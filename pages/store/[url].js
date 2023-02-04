@@ -18,6 +18,13 @@ const Product = ({ guitar }) => {
     }
 
     // Construir um objeto
+    const selectedGuitar = {
+      id: guitar[0].id,
+      image: image.data.attributes.url,
+      name,
+      price,
+      qty
+    };
   };
 
   return (
