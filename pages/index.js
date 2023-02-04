@@ -1,3 +1,4 @@
+import Course from '@/components/course';
 import Guitar from '@/components/guitar';
 import Layout from '@/components/layout';
 import Post from '@/components/post';
@@ -18,6 +19,7 @@ const Home = ({ guitars, posts, course }) => {
           ))}
         </div>
       </main>
+      <Course course={course} />
       <section className="container">
         <h2 className="heading">Blog</h2>
         <div className={styles.grid}>
