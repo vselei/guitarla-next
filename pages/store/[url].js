@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from '@/styles/guitars.module.css';
 import Layout from '@/components/layout';
 
-const Product = ({ guitar }) => {
+const Product = ({ guitar, addToCart }) => {
   const { name, description, image, price } = guitar[0].attributes;
 
   const [qty, setQty] = useState(0);
@@ -25,6 +25,9 @@ const Product = ({ guitar }) => {
       price,
       qty
     };
+
+    // Passando a informação
+    addToCart(selectedGuitar);
   };
 
   return (
