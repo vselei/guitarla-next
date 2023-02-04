@@ -7,6 +7,11 @@ const App = ({ Component, pageProps }) => {
       ? JSON.parse(localStorage.getItem('cart')) ?? []
       : [];
   const [cart, setCart] = useState(cartLS);
+  const [readPage, setReadPage] = useState(false);
+
+  useEffect(() => {
+    setReadPage(true);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -41,7 +46,7 @@ const App = ({ Component, pageProps }) => {
     setCart(updatedCart);
   };
 
-  return (
+  return readPage ? (
     <Component
       cart={cart}
       addToCart={addToCart}
@@ -49,7 +54,7 @@ const App = ({ Component, pageProps }) => {
       updateProduct={updateProduct}
       {...pageProps}
     />
-  );
+  ) : null;
 };
 
 export default App;
