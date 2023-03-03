@@ -47,4 +47,4 @@ npm run dev
 
 ##
 
-Visite o site: <a href="https://guitarla-next-vselei.vercel.app/">GuitarLA Next</a>
+Visite o site: <a href="https://guitarla-next-drab-sigma.vercel.app/">GuitarLA Next</a>
